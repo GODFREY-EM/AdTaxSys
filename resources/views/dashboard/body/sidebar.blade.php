@@ -14,7 +14,7 @@
                 <li class="{{ Request::is('dashboard') ? 'active' : '' }}">
                     <a href="{{ route('dashboard') }}" class="svg-icon">
                         <img src="{{ asset('assets/images/dashboard.png') }}" alt="Dashboard Icon" style="width: 20px; height: 20px;">
-                        <span class="ml-4">Dashboard</span>
+                        <span class="ml-3">Dashboard</span>
                     </a>
                 </li>
 
