@@ -23,7 +23,7 @@
                         </div>
                         <div>
                             <p class="mb-2">Revenue</p>
-                            <h4>$ {{ $total_paid }}</h4>
+                            <h4>TZS {{ $total_paid }}</h4>
                         </div>
                     </div>
                     <div class="iq-progress-bar mt-2">
@@ -43,7 +43,7 @@
                         </div>
                         <div>
                             <p class="mb-2">Total Due</p>
-                            <h4>$ {{ $total_due }}</h4>
+                            <h4>TZS {{ $total_due }}</h4>
                         </div>
                     </div>
                     <div class="iq-progress-bar mt-2">
@@ -63,7 +63,7 @@
                         </div>
                         <div>
                             <p class="mb-2">Complete Orders</p>
-                            <h4>{{ count($complete_orders) }}</h4>
+                            <h4>TZS {{ count($complete_orders) }}</h4>
                         </div>
                     </div>
                     <div class="iq-progress-bar mt-2">
@@ -83,7 +83,7 @@
                         </div>
                         <div>
                             <p class="mb-2">Profit</p>
-                            <h4>$ </h4>
+                            <h4>TZS</h4>
                         </div>
                     </div>
                     <div class="iq-progress-bar mt-2">
@@ -104,7 +104,7 @@
                         </div>
                         <div>
                             <p class="mb-2">Expenses</p>
-                            <h4>$</h4>
+                            <h4>TZS </h4>
                         </div>
                     </div>
                     <div class="iq-progress-bar mt-2">

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Customer;
+use App\Models\Report;
 use App\Models\Employee;
 use App\Models\Supplier;
 use Illuminate\Database\Seeder;
@@ -19,6 +20,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // Optionally delete existing users
+        \App\Models\User::truncate(); // This will delete all existing users
+
         // Create admin and user
         $admin = \App\Models\User::factory()->create([
             'name' => 'Admin',
@@ -38,7 +42,7 @@ class DatabaseSeeder extends Seeder
         Supplier::factory(10)->create();
 
         // Create products with unique product codes
-        for ($i=0; $i < 10; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             Product::factory()->create([
                 'product_code' => IdGenerator::generate([
                     'table' => 'products',
@@ -57,6 +61,9 @@ class DatabaseSeeder extends Seeder
 
         // Create roles and assign permissions
         $this->seedRoles($admin, $user);
+
+        // Create reports 
+        Report::factory(10)->create(); // Create 10 reports
     }
 
     private function seedCategories()
@@ -84,6 +91,7 @@ class DatabaseSeeder extends Seeder
             'employee.menu',
             'customer.menu',
             'supplier.menu',
+            'reports.menu',
             'salary.menu',
             'attendence.menu',
             'category.menu',
@@ -118,4 +126,3 @@ class DatabaseSeeder extends Seeder
         $user->assignRole('Account');
     }
 }
-

@@ -13,11 +13,7 @@
             <ul id="iq-sidebar-toggle" class="iq-menu">
                 <li class="{{ Request::is('dashboard') ? 'active' : '' }}">
                     <a href="{{ route('dashboard') }}" class="svg-icon">
-                        <svg class="svg-icon" id="p-dash1" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                        </svg>
+                        <img src="{{ asset('assets/images/dashboard.png') }}" alt="Dashboard Icon" style="width: 20px; height: 20px;">
                         <span class="ml-4">Dashboard</span>
                     </a>
                 </li>
@@ -37,7 +33,7 @@
                 <li>
                     <a href="#orders" class="collapsed" data-toggle="collapse" aria-expanded="false">
                         <img src="{{ asset('assets/images/orders.svg') }}" alt="Orders Icon" style="width: 20px; height: 20px;">
-                        <span class="ml-3">Orders</span>
+                        <span class="ml-3">Sales</span>
                         <svg class="svg-icon iq-arrow-right arrow-active" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="10 15 15 20 20 15"></polyline>
                             <path d="M4 4h7a4 4 0 0 1 4 4v12"></path>
@@ -47,12 +43,12 @@
 
                         <li class="{{ Request::is('orders/pending*') ? 'active' : '' }}">
                             <a href="{{ route('order.pendingOrders') }}">
-                                <i class="fa-solid fa-arrow-right"></i><span>Pending Orders</span>
+                                <i class="fa-solid fa-arrow-right"></i><span>Pending Sales</span>
                             </a>
                         </li>
                         <li class="{{ Request::is('orders/complete*') ? 'active' : '' }}">
                             <a href="{{ route('order.completeOrders') }}">
-                                <i class="fa-solid fa-arrow-right"></i><span>Complete Orders</span>
+                                <i class="fa-solid fa-arrow-right"></i><span>Complete Sales</span>
                             </a>
                         </li>
                         <li class="{{ Request::is('pending/due*') ? 'active' : '' }}">
@@ -100,6 +96,31 @@
                     </ul>
                 </li>
                 @endif
+
+                <hr>
+
+                <!-- Reporting Section -->
+                @if (auth()->user()->can('reporting.menu'))
+                <li>
+                    <a href="#reporting" class="collapsed" data-toggle="collapse" aria-expanded="false">
+                        <img src="{{ asset('assets/images/reporting.svg') }}" alt="Reporting Icon" style="width: 20px; height: 20px;">
+                        <span class="ml-3">Reporting</span>
+                        <svg class="svg-icon iq-arrow-right arrow-active" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="10 15 15 20 20 15"></polyline>
+                            <path d="M4 4h7a4 4 0 0 1 4 4v12"></path>
+                        </svg>
+                    </a>
+                    <ul id="reporting" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                        <li class="{{ Request::is('reporting/tax') ? 'active' : '' }}">
+                            <a href="{{ route('reporting.tax') }}">
+                                <i class="fa-solid fa-arrow-right"></i><span>Tax Management</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                @endif
+
+
 
                 <hr>
 
@@ -202,7 +223,7 @@
                 @if (auth()->user()->can('roles.menu'))
                 <li>
                     <a href="#permission" class="collapsed" data-toggle="collapse" aria-expanded="false">
-                    <img src="{{ asset('assets/images/roles.svg') }}" alt="Products Icon" style="width: 20px; height: 20px;">
+                        <img src="{{ asset('assets/images/roles.svg') }}" alt="Products Icon" style="width: 20px; height: 20px;">
                         <span class="ml-3">Role & Permission</span>
                         <svg class="svg-icon iq-arrow-right arrow-active" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="10 15 15 20 20 15"></polyline>
@@ -241,7 +262,7 @@
                 @if (auth()->user()->can('database.menu'))
                 <li class="{{ Request::is('database/backup*') ? 'active' : '' }}">
                     <a href="{{ route('backup.index') }}" class="svg-icon">
-                        <img src="{{ asset('assets/images/database.svg') }}" alt="Database Icon" style="width: 20px; height: 20px;">    
+                        <img src="{{ asset('assets/images/database.svg') }}" alt="Database Icon" style="width: 20px; height: 20px;">
                         <span class="ml-3">Backup Database</span>
                     </a>
                 </li>
