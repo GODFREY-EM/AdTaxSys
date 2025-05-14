@@ -8,7 +8,7 @@
 
 ## Problem Statement
 
-TRA currently lacks a **dedicated platform** for managing advertisement taxation. While the existing **Tax Revenue System (TRS v2.0)** allows generation of payment control numbers for taxpayers, it **does not capture or manage details** about the billboard assets themselves.
+TRA currently lacks a **dedicated platform** for managing advertisement taxation. While the existing Tax Revenue System allows generation of payment control numbers for taxpayers, it **does not capture or manage details** about the billboard assets themselves.
 
 ### Real Operational Gaps:
 
@@ -86,9 +86,3 @@ To provide TRA with a **smart, transparent, and scalable digital solution** for 
 As an intern at TRA, I personally observed the absence of a proper system for managing advertisement taxation. We used Microsoft Word to manually generate invoices, and stored billboard data in scattered documents. I initially developed a small C# desktop app to reduce invoice workload, but it lacked scale and integration.
 
 **AdTaxSys** is the next step — a full-fledged, integrated solution inspired by real-world gaps. It has the potential to **revolutionize how TRA handles outdoor advertising**, leading to higher revenue, better compliance, and improved public service delivery.
-
----
-
-## License
-
-MIT License — see the `LICENSE` file for details.
