@@ -170,4 +170,7 @@ Route::middleware(['permission:finance.menu'])->group(function () {
     // Add more routes for additional finance features as needed
 });
 
+Route::resource('expenses', App\Http\Controllers\Dashboard\ExpenseController::class);
+
+
 require __DIR__.'/auth.php';

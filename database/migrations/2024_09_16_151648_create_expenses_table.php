@@ -9,13 +9,18 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('expenses', function (Blueprint $table) {
             $table->id();
+            $table->string('name'); // Expense name
+            $table->decimal('amount', 10, 2); // Expense amount
+            $table->text('description')->nullable(); // Expense description
+            $table->date('expense_date'); // Expense date
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

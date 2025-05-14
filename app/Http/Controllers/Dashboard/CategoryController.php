@@ -77,8 +77,8 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $rules = [
-            'name' => 'required|unique:categories,name,'.$category->id,
-            'slug' => 'required|alpha_dash|unique:categories,slug,'.$category->id,
+            'name' => 'required|unique:categories,name,' . $category->id,
+            'slug' => 'required|alpha_dash|unique:categories,slug,' . $category->id,
         ];
 
         $validatedData = $request->validate($rules);
@@ -93,7 +93,8 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        Category::destroy($category->slug);
+        // Use the model's delete method to remove the category
+        $category->delete();
 
         return Redirect::route('categories.index')->with('success', 'Category has been deleted!');
     }

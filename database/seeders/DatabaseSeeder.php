@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::truncate(); // This will delete all existing users
 
         // Create admin and user
-        $admin = \App\Models\User::factory()->create([
+        \App\Models\User::factory()->create([
             'name' => 'Admin',
             'username' => 'admin',
             'email' => 'admin@gmail.com',

@@ -108,7 +108,38 @@
 
                 <hr>
 
-                <!-- Reporting Section -->
+                <!-- Expenses Menu -->
+                @if (auth()->user()->can('expenses.menu'))
+                    <li>
+                        <a href="#expenses" class="collapsed" data-toggle="collapse" aria-expanded="false">
+                            <img src="{{ asset('assets/images/expenses.svg') }}" alt="Expenses Icon"
+                                style="width: 20px; height: 20px;">
+                            <span class="ml-3">Expenses</span>
+                            <svg class="svg-icon iq-arrow-right arrow-active" width="20" height="20"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polyline points="10 15 15 20 20 15"></polyline>
+                                <path d="M4 4h7a4 4 0 0 1 4 4v12"></path>
+                            </svg>
+                        </a>
+                        <ul id="expenses" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle"
+                            style="">
+                            <li class="{{ Request::is('expenses') ? 'active' : '' }}">
+                                <a href="{{ route('expenses.index') }}">
+                                    <i class="fa-solid fa-arrow-right"></i><span>All Expenses</span>
+                                </a>
+                            </li>
+                            <li class="{{ Request::is('expenses/create') ? 'active' : '' }}">
+                                <a href="{{ route('expenses.create') }}">
+                                    <i class="fa-solid fa-arrow-right"></i><span>Add Expense</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
+
+                <!-- Reporting Menu -->
                 @if (auth()->user()->can('reporting.menu'))
                     <li>
                         <a href="#reporting" class="collapsed" data-toggle="collapse" aria-expanded="false">
@@ -129,10 +160,19 @@
                                     <i class="fa-solid fa-arrow-right"></i><span>Tax Management</span>
                                 </a>
                             </li>
+                            <li class="{{ Request::is('reporting/sales') ? 'active' : '' }}">
+                                <a href="{{ route('reporting.sales') }}">
+                                    <i class="fa-solid fa-arrow-right"></i><span>Sales Reports</span>
+                                </a>
+                            </li>
+                            <li class="{{ Request::is('reporting/expenses') ? 'active' : '' }}">
+                                <a href="{{ route('reporting.expenses') }}">
+                                    <i class="fa-solid fa-arrow-right"></i><span>Expense Reports</span>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 @endif
-
 
 
                 <hr>
