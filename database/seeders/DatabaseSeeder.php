@@ -12,6 +12,7 @@ use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -24,16 +25,18 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::truncate(); // This will delete all existing users
 
         // Create admin and user
-        \App\Models\User::factory()->create([
+        $admin = \App\Models\User::factory()->create([
             'name' => 'Admin',
             'username' => 'admin',
             'email' => 'admin@gmail.com',
+            'password' => Hash::make('admin123')
         ]);
 
         $user = \App\Models\User::factory()->create([
             'name' => 'User',
             'username' => 'user',
             'email' => 'user@gmail.com',
+            'password' => Hash::make('user123')
         ]);
 
         // Create employees, customers, and suppliers
